@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game</title>
+</head>
+
+<body>
+    <h1> Guess what letter I'm thinking of </h1>
+
+    <h2 id="wins"> Wins: &nbsp</h2>
+
+    <h2 id="losses"> Losses: &nbsp</h2>
+
+    <h2 id="guessesLeft"> Guesses Left: &nbsp</h2>
+
+    <h2 id="yourGuesses">Your Guesses So Far: &nbsp</h2>
+
+
+
+
+    <script>
+
+        var alphabet = ["a", "b", "c"]
+        var winsCounter = 0;
+        var lossesCounter = 0;
+        var guessesLeftCounter = 9;
+        var i = 1;
+
+
+
+
+        var winsHeadline = document.getElementById("wins");
+        var lossesHeadline = document.getElementById("losses");
+        var guessesLeft = document.getElementById("guessesLeft");
+        var yourGuesses = document.getElementById("yourGuesses");
+
+
+        document.onkeypress = function (wordGuess) {
+            var userGuess = event.key;
+            var i = [Math.floor((Math.random() * 3))];
+            alert(alphabet[i]);
+
+
+            if (guessesLeftCounter > 0 && userGuess === alphabet[i]) {
+                ++winsCounter;
+                alert("# of wins is " + winsCounter);
+                var winsHeadlinePrint = document.createElement("span");
+                winsHeadlinePrint.textContent = (winsCounter);
+                winsHeadline.appendChild(winsHeadlinePrint);
+
+                --guessesLeftCounter;
+                alert("# of guesses left is " + guessesLeftCounter);
+                var guessesLeftPrint = document.createElement("span");
+                guessesLeftPrint.textContent = (guessesLeftCounter);
+                guessesLeft.appendChild(guessesLeftPrint);
+
+                var yourGuessesPrint = document.createElement("span");
+                yourGuessesPrint.textContent = (userGuess + "\xa0" + "\xa0" + "\xa0");
+                yourGuesses.appendChild(yourGuessesPrint);
+            } else if (guessesLeftCounter > 0) {
+                ++lossesCounter;
+                alert("# of losses is " + lossesCounter);
+                var lossesHeadlinePrint = document.createElement("span");
+                lossesHeadlinePrint.textContent = (lossesCounter);
+                lossesHeadline.appendChild (lossesHeadlinePrint);
+
+                --guessesLeftCounter;
+                alert("# of guesses left is " + guessesLeftCounter);
+                var guessesLeftPrint = document.createElement("span");
+                guessesLeftPrint.textContent= (guessesLeftCounter);
+                guessesLeft.appendChild(guessesLeftPrint);
+
+                var yourGuessesPrint = document.createElement("span");
+                yourGuessesPrint.textContent = (userGuess + "\xa0" + "\xa0" + "\xa0");
+                yourGuesses.appendChild(yourGuessesPrint);
+            } else { return };
+
+           
+
+
+        } //bracket for function wordGuess
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
