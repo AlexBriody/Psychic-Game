@@ -1,0 +1,22 @@
+button,
+div,
+form,
+input {
+    margin: 20px;
+}
+
+.jumbotron {
+    font-size: 50px;
+    background-color: black;
+    color: white;
+}
+
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#wins, #losses, #guessesLeft, #yourGuesses {
+    font-size: 24px;
+}
